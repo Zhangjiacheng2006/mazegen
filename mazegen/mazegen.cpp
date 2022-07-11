@@ -98,10 +98,10 @@ void mazegen::genmz(int val){
             lsp=p; vis[p.first][p.second]=++tot;
         }
         for(auto p:pth){
-            if( p.first+1 <mapn && vis[p.first+1][p.second]==0 ) bfsq.push(BFQ(p.first+1,p.second,1,vis[p.first][p.second]));
-            if( p.second+1<mapm && vis[p.first][p.second+1]==0 ) bfsq.push(BFQ(p.first,p.second+1,2,vis[p.first][p.second]));
-            if( p.first   >0    && vis[p.first-1][p.second]==0 ) bfsq.push(BFQ(p.first-1,p.second,3,vis[p.first][p.second]));
-            if( p.second  >0    && vis[p.first][p.second-1]==0 ) bfsq.push(BFQ(p.first,p.second-1,4,vis[p.first][p.second]));
+            if( p.first+1 <mapn && vis[p.first+1][p.second]==0 ) bfsq.push(BFQ(p.first+1,p.second,1,++tot));
+            if( p.second+1<mapm && vis[p.first][p.second+1]==0 ) bfsq.push(BFQ(p.first,p.second+1,2,++tot));
+            if( p.first   >0    && vis[p.first-1][p.second]==0 ) bfsq.push(BFQ(p.first-1,p.second,3,++tot));
+            if( p.second  >0    && vis[p.first][p.second-1]==0 ) bfsq.push(BFQ(p.first,p.second-1,4,++tot));
         }
         for(BFQ u=BFQ(0,0,0,0);!bfsq.empty();){
             u=bfsq.top();bfsq.pop(); if(vis[u.x][u.y]) continue;
